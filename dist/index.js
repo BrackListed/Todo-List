@@ -4,16 +4,23 @@ let userTasks = JSON.parse(localStorage.getItem("task-storage") || "[]");
 let todayTasks = document.querySelector("#today-container");
 let newTask = null;
 let taskPlaceholder = document.getElementById("task-placeholder");
+let taskinProgress = false;
 if (userTasks.length > 0) {
     taskPlaceholder.remove();
 }
 else {
 }
 addTask === null || addTask === void 0 ? void 0 : addTask.addEventListener("click", function () {
-    newTask = document.createElement("input");
-    newTask.id = "user-tasks";
-    todayTasks === null || todayTasks === void 0 ? void 0 : todayTasks.appendChild(newTask);
-    taskCreation();
+    if (taskinProgress === true) {
+        alert("Finish writing your current task first!");
+    }
+    else {
+        newTask = document.createElement("input");
+        newTask.id = "user-tasks";
+        todayTasks === null || todayTasks === void 0 ? void 0 : todayTasks.appendChild(newTask);
+        taskCreation();
+        taskinProgress = true;
+    }
 });
 userTasks.forEach((tasks) => {
     let listTask = document.createElement("li");
@@ -30,6 +37,7 @@ function taskCreation() {
             todayTasks === null || todayTasks === void 0 ? void 0 : todayTasks.appendChild(newlyCreated);
             newTask.remove();
             taskPlaceholder.remove();
+            taskinProgress = false;
         }
     });
     newTask === null || newTask === void 0 ? void 0 : newTask.addEventListener("blur", function () {

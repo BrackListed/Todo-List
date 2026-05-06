@@ -4,18 +4,25 @@ let userTasks:string[] = JSON.parse(localStorage.getItem("task-storage") || "[]"
 let todayTasks = document.querySelector<HTMLDivElement>("#today-container")
 let newTask:HTMLInputElement | null = null
 let taskPlaceholder = document.getElementById("task-placeholder") as HTMLLIElement
+let taskinProgress:boolean = false
 
 if(userTasks.length > 0){
     taskPlaceholder.remove()
 } else{
-    
+
 }
 
+
 addTask?.addEventListener("click", function(){
-    newTask = document.createElement("input")
-    newTask.id = "user-tasks"
-    todayTasks?.appendChild(newTask)
-    taskCreation()
+    if(taskinProgress === true){
+        alert("Finish writing your current task first!")
+    } else{
+        newTask = document.createElement("input")
+        newTask.id = "user-tasks"
+        todayTasks?.appendChild(newTask)
+        taskCreation()
+        taskinProgress = true
+    }
 })
 
 
@@ -35,6 +42,7 @@ function taskCreation(){
             todayTasks?.appendChild(newlyCreated)
             newTask!.remove()
             taskPlaceholder.remove()
+            taskinProgress = false
         }
     })
 
