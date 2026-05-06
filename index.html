@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>   
+    <link href = "style.css" rel = "stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class = "left-panel">
+        <div class = "header">
+            <img src = "Images/logo.jpeg" alt = "logo">
+            <div class = "text">Beginner To-Do List</div>
+        </div>
+        <div class = "main">
+            <div class = "plans">
+                <i data-lucide = "book"></i>
+                <a href = "" target = "_blank" rel = "noreferrer noopener">Plans</a>
+            </div>
+            <div class = "tomorrow">
+                <i data-lucide="list"></i>
+                <a href = "bor.html" target = "_blank" rel = "noreferrer noopener">To-Do List for Tomorrow</a>
+            </div>
+        </div>
+    </div>
+
+    <div class = "main-page">
+        <h1 id = "header">To-Do List Today:</h1>
+        <div class = "add-task">
+            Add Task
+            <i data-lucide = "book-plus"></i>
+        </div>
+        <div id = "today-container">
+            <ul>
+                <li>You haven't put anything here yet! Click "Add Task<i data-lucide = "book-plus"></i>" to get started.</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script src = "dist/index.js" type = "module"></script>
+    <script>
+        lucide.createIcons()
+    </script>
+</body>
+</html>
